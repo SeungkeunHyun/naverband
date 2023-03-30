@@ -1,0 +1,6 @@
+{
+    "/api": {
+        "target": "https://openapi.band.us",
+        "secure": false
+    }
+}
