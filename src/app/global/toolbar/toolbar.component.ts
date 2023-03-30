@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { HttpService } from 'src/app/services/http.service';
-
+import { Bands, Band } from 'src/app/models/bands';
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
@@ -11,30 +11,15 @@ export class ToolbarComponent implements OnInit {
   constructor(private http: HttpService) {
     
   }
-  items: MenuItem[] = [];
+  currentBand?:Band;
+  bands:Band[] = [];
   ngOnInit() {
     this.http.getBands().subscribe(c=> {
-      console.log("bands", c);
+      let res:Bands = <any>c;
+      this.bands = res.result_data.bands;
     });
-    this.items = [
-        {
-            label: 'Update',
-            icon: 'pi pi-refresh'
-        },
-        {
-            label: 'Delete',
-            icon: 'pi pi-times'
-        },
-        {
-            label: 'Angular',
-            icon: 'pi pi-external-link',
-            url: 'http://angular.io'
-        },
-        {
-            label: 'Router',
-            icon: 'pi pi-upload',
-            routerLink: '/fileupload'
-        }
-    ];
+  }
+  gotoBand() {
+    console.log(this.currentBand);
   }
 }

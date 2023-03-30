@@ -12,6 +12,8 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { ToolbarComponent } from './global/toolbar/toolbar.component';
 import { MenuModule } from 'primeng/menu';
 import { HttpClientModule } from '@angular/common/http';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
     SplitButtonModule,
     ToolbarModule,
     MenuModule,
-    HttpClientModule
+    HttpClientModule,
+    DropdownModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

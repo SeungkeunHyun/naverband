@@ -1,6 +1,7 @@
 {
-    "/api": {
-        "target": "https://openapi.band.us",
-        "secure": false
+    "/api/*": {
+        "target": "http://skhyun.pe.hu",
+        "secure": false,
+        "logLevel": "debug"
     }
 }
