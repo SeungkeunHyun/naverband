@@ -1,7 +1,9 @@
 {
-    "/api/*": {
-        "target": "http://skhyun.pe.hu",
+    "/api": {
+        "target": "http://skhyun.pe.hu/php/util",
         "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {"^/api": ""},
         "logLevel": "debug"
     }
 }
