@@ -21,5 +21,7 @@ export class ToolbarComponent implements OnInit {
   }
   gotoBand() {
     console.log(this.currentBand);
+    let bandKey:string = this.currentBand?.band_key!;
+    this.http.setCurrentBand(this.currentBand!);
   }
 }

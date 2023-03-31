@@ -1,0 +1,34 @@
+<p-table [columns]="cols" [value]="posts!" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{ col.header }}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr valign="top">
+            <td style="text-align: center;">
+                <p-image src="{{rowData.author.profile_image_url}}" imageStyle="float:none" alt="Image" width="120px" [preview]="true"></p-image>
+                <div><b>{{rowData.author.name}}</b> <br/><em>{{rowData.author.description}}</em></div>
+            </td>
+            <td (click)="getPost(rowData.post_key)">
+                <p-galleria *ngIf="rowData.photos.length > 1" [value]="rowData.photos" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width':'300px'}" [numVisible]="3">
+                    <ng-template pTemplate="item" let-item>
+                        <img [src]="item.url" style="width: 100%;" />
+                    </ng-template>
+                    <ng-template pTemplate="thumbnail" let-item>
+                        <div class="grid grid-nogutter justify-content-center">
+                            <img [src]="item.url" height="60px" />
+                        </div>
+                    </ng-template>
+                </p-galleria>
+                <img *ngIf="rowData.photos.length == 1" class="m-auto" style="float:left;max-width:300px;max-height:300px" src="{{rowData.photos[0].url}}" height="300px"/>
+                {{ rowData.content | slice:0:300}}
+            </td>
+            <td>{{ rowData.created_at | date }}</td>
+            <td>{{ rowData.comment_count }}</td>
+        </tr>
+    </ng-template>
+</p-table>
+<app-readpost *ngIf="post != null" [post]="post"></app-readpost>

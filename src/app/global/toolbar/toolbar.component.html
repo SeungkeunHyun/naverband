@@ -2,9 +2,11 @@
     <p-dropdown [options]="bands" [(ngModel)]="currentBand" optionLabel="name" (onChange)="gotoBand()" placeholder="Select a Band">
         <ng-template let-band pTemplate="band">
             <div class="flex align-items-center">
-                <img src="{{ band.cover }}" class="mr-2" style="width: 20px" />
-                <span>{{ band.name }}</span>
+                <img src="{{ band.cover }}" class="mr-2" style="width: 40px" />
+                <span>{{ band.name }} 
+                    <p-badge [value]="band.member_count"></p-badge></span>
             </div>
         </ng-template>
     </p-dropdown>
+    <span *ngIf="currentBand != null"><img src="{{currentBand.cover}}" height="100px"/></span>
 </div>

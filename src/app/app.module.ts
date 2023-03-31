@@ -14,11 +14,21 @@ import { MenuModule } from 'primeng/menu';
 import { HttpClientModule } from '@angular/common/http';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
+import { TableModule } from 'primeng/table';
+import { BoardComponent } from './parts/board/board.component';
+import { CardModule } from 'primeng/card';
+import { ImageModule } from 'primeng/image';
+import { BadgeModule } from 'primeng/badge';
+import { GalleriaModule } from 'primeng/galleria';
+import { DialogModule } from 'primeng/dialog';
+import { ReadpostComponent } from './parts/readpost/readpost.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    BoardComponent,
+    ReadpostComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +41,13 @@ import { FormsModule } from '@angular/forms';
     MenuModule,
     HttpClientModule,
     DropdownModule,
-    FormsModule
+    FormsModule,
+    TableModule,
+    CardModule,
+    ImageModule,
+    BadgeModule,
+    GalleriaModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
