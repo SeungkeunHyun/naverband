@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {EventEmitter} from '@angular/core';
 import { Band } from '../models/bands';
 import { Root, Item } from 'src/app/models/posts';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +36,7 @@ export class HttpService {
 
   getPost(bandKey:string, postId:string) {
     let endpoint:string = this.openAPIHost + '/v2.1/band/post';
-    return this.http.get(this.curlEndpoint, {params: {"uri": endpoint + '?access_token=' + this.clientInfo.AccessToken + '&band_key=' + bandKey + '&post_key=' + postId}});
+    let requri = endpoint + '?access_token=' + this.clientInfo.AccessToken + '&band_key=' + bandKey + '&post_key=' + postId;
+    return this.http.get(this.curlEndpoint, {params: {"uri": requri}});
   }
 }

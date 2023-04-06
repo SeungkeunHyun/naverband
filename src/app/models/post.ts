@@ -1,4 +1,5 @@
-export interface Post {
+import {Author, Photo} from './posts';
+export interface PostRoot {
     result_code: number
     result_data: ResultData
 }
@@ -18,6 +19,8 @@ export interface Post {
     author: Author
     post_read_count: number
     band_key: string
-    video: any
+    video?: any
+    photo?: any
+    photos?: Photo[]
     content: string
 }

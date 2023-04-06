@@ -1,1 +1,25 @@
-<p>readpost works!</p>
+<p-dialog header="Header" [(visible)]="visible" [style]="{width: '80%'}">
+    <div *ngIf="post != null">
+        <div valign="top">
+            <p-image src="{{post.author.profile_image_url!}}" alt="Image" width="120px" [preview]="true"></p-image>
+            <b>{{post.author.name}}</b> <br/><em>{{post.author.description}}</em>
+        </div>
+        <div>작성일: {{ post.created_at | date }}</div>
+        <div>
+            <p-galleria *ngIf="post.photos != null && post.photos.length > 1" [value]="post.photos" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width':'300px'}" [numVisible]="3">
+                <ng-template pTemplate="item" let-item>
+                    <img [src]="item.url" style="width: 100%;" />
+                </ng-template>
+                <ng-template pTemplate="thumbnail" let-item>
+                    <div class="grid grid-nogutter justify-content-center">
+                        <img [src]="item.url" height="60px" />
+                    </div>
+                </ng-template>
+            </p-galleria>
+            <img *ngIf="post.photos != null && post.photos.length == 1" class="m-auto" style="float:left;max-width:300px;max-height:300px" src="{{post.photos[0].url}}" height="300px"/>
+            {{ post.content }}
+        </div>
+        <div>댓글 갯수: {{ post.comment_count }}</div>
+        </div>
+</p-dialog>
+ 

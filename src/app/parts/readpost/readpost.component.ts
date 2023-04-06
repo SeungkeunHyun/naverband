@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Band } from 'src/app/models/bands';
+import { Post } from 'src/app/models/post';
+import { Photo } from 'src/app/models/posts';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
@@ -8,15 +10,33 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ['./readpost.component.css']
 })
 
-export class ReadpostComponent implements OnInit {
+export class ReadpostComponent implements OnInit, OnChanges {
+  visible: boolean = false;
+  responsiveOptions: any[] = [];
+  @Input() post?: Post;
+  constructor(private http: HttpService) {
 
-  @Input() post?:any;
-  constructor(private http:HttpService) {
+  }
 
+  ngOnChanges(changes: SimpleChanges) {
+    this.visible = this.post != null;
   }
 
   ngOnInit(): void {
-    
+    this.responsiveOptions = [
+      {
+        breakpoint: '1024px',
+        numVisible: 3
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 3
+      },
+      {
+        breakpoint: '560px',
+        numVisible: 1
+      }
+    ];
   }
 }
-  
+ 
