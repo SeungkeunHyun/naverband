@@ -1,12 +1,26 @@
-<div class="card flex justify-content-center">
-    <p-dropdown [options]="bands" [(ngModel)]="currentBand" optionLabel="name" (onChange)="gotoBand()" placeholder="Select a Band">
-        <ng-template let-band pTemplate="band">
-            <div class="flex align-items-center">
-                <img src="{{ band.cover }}" class="mr-2" style="width: 40px" />
-                <span>{{ band.name }} 
-                    <p-badge [value]="band.member_count"></p-badge></span>
-            </div>
-        </ng-template>
-    </p-dropdown>
-    <span *ngIf="currentBand != null"><img src="{{currentBand.cover}}" height="100px"/></span>
+<div class="p-grid m-2">
+    <div class="p-col">
+        <span>
+            <p-dropdown [options]="bands" [(ngModel)]="currentBand" optionLabel="name" (onChange)="gotoBand()"
+                placeholder="Select a Band">
+                <ng-template let-band pTemplate="band">
+                    <div class="flex align-items-center">
+                        <img src="{{ band.cover }}" class="mr-2" style="width: 40px" />
+                        <span>{{ band.name }}
+                            <p-badge [value]="band.member_count"></p-badge></span>
+                    </div>
+                </ng-template>
+            </p-dropdown>
+        </span>
+    </div>
+    <div class="p-col" *ngIf="currentBand != null">
+        <p-menubar [model]="menus">
+            <ng-template pTemplate="start">
+                <img src="{{currentBand.cover}}" height="40" class="mr-2" />
+            </ng-template>
+            <ng-template pTemplate="end">
+                <input type="text" pInputText placeholder="Search" class="w-full" />
+            </ng-template>
+        </p-menubar>
+    </div>
 </div>

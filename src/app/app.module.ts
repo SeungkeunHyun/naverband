@@ -22,6 +22,7 @@ import { BadgeModule } from 'primeng/badge';
 import { GalleriaModule } from 'primeng/galleria';
 import { DialogModule } from 'primeng/dialog';
 import { ReadpostComponent } from './parts/readpost/readpost.component';
+import { MenubarModule } from 'primeng/menubar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,8 @@ import { ReadpostComponent } from './parts/readpost/readpost.component';
     ImageModule,
     BadgeModule,
     GalleriaModule,
-    DialogModule
+    DialogModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
