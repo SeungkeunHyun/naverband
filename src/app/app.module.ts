@@ -23,13 +23,16 @@ import { GalleriaModule } from 'primeng/galleria';
 import { DialogModule } from 'primeng/dialog';
 import { ReadpostComponent } from './parts/readpost/readpost.component';
 import { MenubarModule } from 'primeng/menubar';
+import { MembersComponent } from './parts/members/members.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ToolbarComponent,
     BoardComponent,
-    ReadpostComponent
+    ReadpostComponent,
+    MembersComponent
   ],
   imports: [
     BrowserModule,
