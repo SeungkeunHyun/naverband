@@ -14,7 +14,7 @@
         </span>
     </div>
     <div class="p-col" *ngIf="currentBand != null">
-        <p-menubar [model]="menus">
+        <p-menubar [model]="items">
             <ng-template pTemplate="start">
                 <img src="{{currentBand.cover}}" height="40" class="mr-2" />
             </ng-template>

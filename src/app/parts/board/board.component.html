@@ -1,4 +1,4 @@
-<p-table [columns]="cols" [value]="posts!" [tableStyle]="{ 'min-width': '50rem' }">
+<p-table *ngIf="posts != null" [columns]="cols" [value]="posts!" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header" let-columns>
         <tr>
             <th *ngFor="let col of columns">

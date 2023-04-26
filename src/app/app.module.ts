@@ -24,7 +24,9 @@ import { DialogModule } from 'primeng/dialog';
 import { ReadpostComponent } from './parts/readpost/readpost.component';
 import { MenubarModule } from 'primeng/menubar';
 import { MembersComponent } from './parts/members/members.component';
-
+import { AlbumsComponent } from './parts/albums/albums.component';
+import { CalendarComponent } from './parts/calendar/calendar.component';
+import { CarouselModule } from 'primeng/carousel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import { MembersComponent } from './parts/members/members.component';
     ToolbarComponent,
     BoardComponent,
     ReadpostComponent,
-    MembersComponent
+    MembersComponent,
+    AlbumsComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,9 +56,10 @@ import { MembersComponent } from './parts/members/members.component';
     BadgeModule,
     GalleriaModule,
     DialogModule,
-    MenubarModule
+    MenubarModule,
+    CarouselModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
